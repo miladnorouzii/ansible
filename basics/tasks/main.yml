@@ -1,0 +1,28 @@
+---
+- name: Run the equivalent of "apt-get update" as a separate step
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Upgrade the OS (apt-get dist-upgrade)
+  ansible.builtin.apt:
+    upgrade: dist
+
+- name: Install basic packages
+  apt:
+    pkg:
+    - vim
+    - mtr
+    - nload
+    - nethogs
+    - tree
+    - jq
+    - curl
+    - git
+
+- name: Set hostname
+  hostname:
+    name: milad
+
+- debug:
+    msg: "{{ groups['test'] }}"
+  tags: debug

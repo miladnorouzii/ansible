@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - role: basics
+  gather_facts: no
+  become: yes
+  any_errors_fatal: true
